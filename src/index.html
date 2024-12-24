@@ -16,7 +16,7 @@
 
   @include('partials/header.html')
   <main class="main">
-
+    <div class="cssnow"></div>
     @include('partials/section-hero.html')
     @include('partials/section-choose.html')
     @include('partials/section-quiz.html')
@@ -38,6 +38,9 @@
   <script src="libs/gsap/ScrollTrigger.min.js"></script>
   <script src="libs/aos.js"></script>
   <script>
+    for (let i = 0; i < 19; i++) {
+      document.querySelector('.cssnow').innerHTML += '<span>';
+    }
     AOS.init({
       disable: "mobile",
       easing: 'ease-out-back',
