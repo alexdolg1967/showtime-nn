@@ -1,0 +1,30 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+// подключения компонентов страницы
+@import "./components/preloader";
+@import "./components/reveal";
+@import "./components/buttons";
+@import "./components/header";
+@import "./components/animations";
+@import "./components/section-hero";
+@import "./components/section-choose";
+@import "./components/section-quiz";
+@import "./components/section-services";
+@import "./components/section-portfolio";
+@import "./components/section-studio";
+@import "./components/section-certificates";
+@import "./components/section-reviews";
+@import "./components/section-payment";
+@import "./components/breadcrumbs";
+@import "./components/section-usluga";
+@import "./components/policy";
+@import "./components/pagination";
+@import "./components/footer";
+@import "./components/graph-modal";
+@import "./components/modals";
+@import "./components/forms";
+// @import "./components/modals";

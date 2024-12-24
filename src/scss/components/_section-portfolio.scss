@@ -1,0 +1,73 @@
+.section-portfolio {
+  &__grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: clamp(25px, 0.991rem + 2.44vw, 50px);
+
+    & .btn {
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  &__list {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 188px);
+    grid-auto-rows: 188px;
+    gap: 20px;
+    z-index: 1;
+
+    @media screen and (min-width: 600px) {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(clamp(270px, 15.274rem + 6.83vw, 340px), 1fr)
+      );
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: auto;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 1;
+
+    &:first-of-type {
+      @media screen and (min-width: 768px) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+
+    & img,
+    & video,
+    & iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.page-portfolio .section-portfolio__list {
+  grid-auto-flow: dense;
+  grid-template-rows: repeat(3, 200px);
+  grid-auto-rows: 200px;
+}
+
+.page-portfolio .section-portfolio__item:nth-child(4n + 1) {
+  @media screen and (min-width: 600px) {
+    grid-row: span 2;
+  }
+}
+.page-portfolio .section-portfolio__item:nth-child(4n + 2) {
+  @media screen and (min-width: 600px) {
+    grid-column: span 2;
+  }
+}

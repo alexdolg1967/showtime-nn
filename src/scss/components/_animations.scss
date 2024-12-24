@@ -1,0 +1,51 @@
+@keyframes topheader {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes blocksearch {
+  0% {
+    top: -150px;
+    padding-top: 0;
+  }
+  100% {
+    top: 0;
+    padding-top: 43px;
+  }
+}
+
+i {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #0f0;
+  pointer-events: none;
+  animation: animateCursor 2s linear forwards;
+}
+
+@keyframes animateCursor {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y));
+  }
+}
+
+@keyframes borderPopover {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,92 @@
+.graph-modal {
+  --transition-time: 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
+  cursor: pointer;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-time), visibility var(--transition-time);
+}
+
+.graph-modal::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.graph-modal__container {
+  position: relative;
+  width: auto;
+  margin: rem(50) rem(15);
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fff;
+  border-radius: rem(10);
+  padding: rem(20);
+  cursor: default;
+  text-align: left;
+  display: none;
+}
+
+.graph-modal__close {
+  position: absolute;
+  right: rem(10);
+  top: rem(10);
+  border: none;
+  padding: 0;
+  width: rem(24);
+  height: rem(24);
+  padding: 0;
+  color: var(--text-color);
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--hover-color);
+  }
+}
+
+.graph-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--transition-time), visibility var(--transition-time);
+}
+
+.graph-modal__container.graph-modal-open {
+  display: inline-block;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity var(--transition-time);
+}
+
+.fade.animate-open {
+  opacity: 1;
+  transition: opacity var(--transition-time);
+}
+
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform var(--transition-time), opacity var(--transition-time);
+}
+
+.fadeInUp.animate-open {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform var(--transition-time), opacity var(--transition-time);
+}

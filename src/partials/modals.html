@@ -1,0 +1,111 @@
+<div class="graph-modal">
+  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="order">
+    <button class="btn btn-reset graph-modal__close js-modal-close" aria-label="Закрыть модальное окно">
+      <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M17.1666 2.47825L15.5216 0.833252L8.99992 7.35492L2.47825 0.833252L0.833252 2.47825L7.35492 8.99992L0.833252 15.5216L2.47825 17.1666L8.99992 10.6449L15.5216 17.1666L17.1666 15.5216L10.6449 8.99992L17.1666 2.47825Z"
+          fill="white" />
+      </svg>
+    </button>
+    <div class="graph-modal__content">
+      <div class="graph-modal__title">Принять участие в шоу</div>
+      <form id="form-modal" class="wpcf7-form" novalidate>
+        <input type="hidden" name="theme" value="Обратный звонок" />
+        <input type="hidden" name="admin_email[]" value="" />
+        <input type="hidden" name="form_subject" value="Заявка с сайта" />
+        <div class="form-group">
+          <div class="input__box">
+            <input type="text" autofocus id="inputName" name="Имя" class="form__input" aria-required="true"
+              pattern="^[А-Яа-я]+\s[А-Яа-я]+$" required autocomplete="off" placeholder="Имя"
+              title="Имя только русскими буквами и цифрами" />
+            <label class="form__label"></label>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="input__box">
+            <input type="email" id="inputEmail" name="email" class="form__input input-mail" aria-required="true"
+              pattern="(\w\.?)+@[\w\.-]+\.\w{2,4}" required autocomplete="off" placeholder="Email" />
+            <label class="form__label"></label>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="input__box">
+            <input type="tel" id="inputPhone" name="tel" class="form__input input-tel" aria-required="true"
+              aria-invalid="true" required autocomplete="off"
+              pattern="^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$" placeholder="Телефон" />
+            <label class="form__label"></label>
+            <span class="error" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="input__box">
+          <textarea name="message" id="inputMessage" type="text" class="form__input input-textarea" aria-required="true"
+            aria-invalid="true" required maxlength="250" spellcheck="true"
+            title="Текст сообщения только русскими буквами и цифрами" pattern="/[^\u0400-\u04ff0-9_,.;:&!()=?*+#\s]/g"
+            placeholder="Сообщение"></textarea>
+          <label class="form__label"></label>
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <button type="submit" class="btn btn-reset form__btn">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="phone">
+    <button class="btn btn-reset graph-modal__close js-modal-close" aria-label="Закрыть модальное окно">
+      <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M17.1666 2.47825L15.5216 0.833252L8.99992 7.35492L2.47825 0.833252L0.833252 2.47825L7.35492 8.99992L0.833252 15.5216L2.47825 17.1666L8.99992 10.6449L15.5216 17.1666L17.1666 15.5216L10.6449 8.99992L17.1666 2.47825Z"
+          fill="white" />
+      </svg>
+    </button>
+    <div class="graph-modal__content">
+      <div class="graph-modal__title">Забронировать время</div>
+      <form id="form-modal" class="wpcf7-form" novalidate>
+        <input type="hidden" name="theme" value="Обратный звонок" />
+        <input type="hidden" name="admin_email[]" value="" />
+        <input type="hidden" name="form_subject" value="Заявка с сайта" />
+
+        <div class="input__groups">
+          <div class="input__box">
+            <label class="form__label">Имя</label>
+            <input type="text" autofocus id="inputName" name="Имя" class="form__input" aria-required="true"
+              pattern="^[А-Яа-я]+\s[А-Яа-я]$" required autocomplete="off" placeholder="Имя"
+              title="Имя только русскими буквами и цифрами" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+
+          <div class="input__box">
+            <label class="form__label">Телефон</label>
+            <input type="tel" id="inputPhone" name="tel" class="form__input input-tel" aria-required="true"
+              aria-invalid="true" required autocomplete="off"
+              pattern="^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$" placeholder="Телефон" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+
+          <div class="input__box">
+            <label class="form__label">Электронная почта</label>
+            <input type="email" id="inputEmail" name="email" class="form__input input-mail" aria-required="true"
+              pattern="(\w\.?)+@[\w\.-]+\.\w{2,4}" required autocomplete="off" placeholder="Email" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="input__box">
+          <label class="form__label">Сообщение</label>
+          <textarea name="message" id="inputMessage" type="text" class="form__input input-textarea" aria-required="true"
+            aria-invalid="true" required maxlength="250" spellcheck="true"
+            title="Текст сообщения только русскими буквами и цифрами" pattern="/[^\u0400-\u04ff0-9_,.;:&!()=?*+#\s]/g"
+            placeholder="Сообщение"></textarea>
+          <span class="error" aria-live="polite"></span>
+        </div>
+
+        <label class="custom-checkbox" id="agreement">
+          <input type="checkbox" class="custom-checkbox__field" />
+          <span class="custom-checkbox__content">Я согласен на обработку <a href="#">персональных данных</a> и с
+            условиями <a href="#">пользовательского соглашения</a></span>
+        </label>
+
+        <input type="submit" class="btn btn-reset wpcf7-submit">
+      </form>
+    </div>
+  </div>
+</div>

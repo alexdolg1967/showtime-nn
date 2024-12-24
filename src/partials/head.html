@@ -1,0 +1,81 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>@title</title>
+  <meta name="description" content="SHOW TIME - это шоу игра в Нижнем Новгороде и совершенно новый формат развлечения.">
+  <meta name="keywords"
+    content="игры, развлечение. отдых, провести мероприятие, день рождения, подарок, развлекательная программа, шоутайм, шоу тайм, SHOW TIME, SHOWTIME">
+  <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="libs/aos.css" />
+  <link rel="stylesheet" href="libs/fancybox.css" />
+  <link rel="stylesheet" href="css/vendor.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script>
+
+    setInterval(function () { randomTransform(document.querySelector("#stick")) }, 500);
+
+    // set a random css transform on the (el)ement
+    function randomTransform(el) {
+
+      var numX = Math.floor(Math.random() * 159) + 1; // this will get a number between 1 and 99;
+      numX *= Math.floor(Math.random() * 2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+
+      var numY = Math.floor(Math.random() * 179) + 1; // this will get a number between 1 and 99;
+      numY *= Math.floor(Math.random() * 2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+
+      var trans = "translate(" + numX + "%, " + numY + "%)";
+
+      // clear transform
+      el.style.transform = "";
+      el.style.webkitTransform = "";
+      el.style.MozTransform = "";
+      el.style.msTransform = "";
+      el.style.OTransform = "";
+
+      // set random transform
+      el.style.webkitTransform = trans;
+      el.style.MozTransform = trans;
+      el.style.msTransform = trans;
+      el.style.OTransform = trans;
+      el.style.transform = trans;
+    }
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      let duration = 0.6;
+      let delay = 0.3;
+      let revealText = document.querySelector(".reveal");
+      let letters = revealText.textContent.split("");
+      revealText.textContent = "";
+      let middle = letters.filter(e => e !== " ").length / 2;
+      letters.forEach((letter, i) => {
+        let span = document.createElement("span");
+        span.textContent = letter;
+        span.style.animationDelay = `${delay + Math.abs(i - middle) * 0.1}s`;
+        const randomColor = `#${(Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0'))}`;
+        span.style.color = randomColor;
+        revealText.append(span);
+      });
+      const preloader = document.getElementById('preloader');
+      const preloaderContent = preloader.querySelector('.preload__content');
+      preloaderContent.style.opacity = 1;
+      preloaderContent.style.visibility = 'visible';
+      window.setTimeout(function () {
+        preloader.style.animation = 'hidden_preloader 1s ease forwards';
+        preloaderContent.style.animation = 'hidden_content_preloader 1s ease forwards';
+        document.body.classList.add("loaded");
+      }, 3000);
+    });
+  </script>
+
+
+
+</head>

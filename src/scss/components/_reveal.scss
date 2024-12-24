@@ -1,0 +1,64 @@
+.reveal {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  max-height: 90px;
+  letter-spacing: clamp(1px, 0.06rem + 0.15vw, 2px);
+  text-transform: uppercase;
+  white-space: pre;
+
+  span {
+    transform: scale(0);
+    opacity: 0;
+    animation: fadeIn 0.8s infinite;
+    will-change: transform, opacity;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: scale(0);
+    opacity: 0;
+    background: var(--accent-color);
+    width: 1px;
+    height: 100%;
+    content: "";
+  }
+
+  &::before {
+    left: 50%;
+    animation: slideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) infinite;
+  }
+
+  &::after {
+    right: 50%;
+    animation: slideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  to {
+    left: -6%;
+    transform: scale(0.9);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  to {
+    right: -6%;
+    transform: scale(0.9);
+    opacity: 1;
+  }
+}

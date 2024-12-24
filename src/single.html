@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html', {"title": "Страница услуги - Showtime"})
+
+<body class="page__body">
+  <!-- noindex -->
+  <!--[if lt IE 11
+        ]><p class="browsehappy container">
+          Извините, вы используете устаревший браузер. Пожалуйста,
+          <a href="http://browsehappy.com/" target="_blank">обновите браузер</a>, чтобы улучшить производительность, качество
+          отображения и безопасность.
+        </p><!
+      [endif]-->
+  <!-- /noindex -->
+  <!-- @include('partials/preloader.html') -->
+
+  @include('partials/header.html')
+  <main class="main">
+    @include('partials/breadcrumbs.html', {"page": "Карточка услуги"})
+    @include('partials/section-usluga.html')
+    @include('partials/section-quiz.html')
+    @include('partials/section-payment.html')
+  </main>
+  @include('partials/footer.html')
+  @include('partials/modals.html')
+
+  <script src="libs/inputmask.min.js"></script>
+  <script src="libs/swiper-bundle.min.js"></script>
+  <script src="libs/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: "mobile",
+      easing: 'ease-out-back',
+      duration: 1200,
+      //      easing: 'ease-in-out', // default easing for AOS animations
+    });
+  </script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('input[type="text"]').forEach((input) => {
+        // Вставка сюда невозможна
+        input.onpaste = (e) => e.preventDefault();
+
+        input.addEventListener('input', function (event) {
+          var currentValue = event.target.value;  // только русские буквы и цифры
+          var validValue = currentValue.replace(/[^\u0400-\u04ff0-9_,.;:&!()=?*+#\s]/g, ''); // Replace characters that are not alphanumeric, #$, /, newline or carriage return with an empty string
+
+          if (currentValue !== validValue) {
+            event.target.value = validValue; // Set the textarea value to the valid value
+            event.preventDefault(); // Prevent default behavior to deny the change
+          }
+        });
+      });
+
+      // проверки на все текстовые поля
+      const textareas = document.querySelectorAll('textarea');
+
+      textareas.forEach(item => {
+
+        item.onpaste = (e) => e.preventDefault();
+
+        item.addEventListener('input', function (event) {
+          var currentValue = event.target.value;  // только русские буквы и цифры
+          var validValue = currentValue.replace(/[^\u0400-\u04ff0-9_,.;:&!()=?*+#\s]/g, ''); // Replace characters that are not alphanumeric, #$, /, newline or carriage return with an empty string
+
+          if (currentValue !== validValue) {
+            event.target.value = validValue; // Set the textarea value to the valid value
+            event.preventDefault(); // Prevent default behavior to deny the change
+          }
+        });
+      })
+
+
+      // const link = document.querySelectorAll('.content__link');
+
+      // const changePosition = {
+      //   name: 'changePosition',
+      //   enabled: true,
+      //   phase: 'main',
+      //   fn({ state }) {
+      //     console.log(state);
+      //     if (state.placement === 'top') {
+      //       state.elements.popper.querySelector('.tooltip__arrow').classList.remove('tooltip__arrow--reverse');
+      //     }
+
+      //     if (state.placement === 'bottom') {
+      //       state.elements.popper.querySelector('.tooltip__arrow').classList.add('tooltip__arrow--reverse');
+      //     }
+      //   },
+      // }
+
+      // link.forEach(el => {
+      //   let tooltip = el.querySelector('.tooltip');
+
+      //   Popper.createPopper(el, tooltip, {
+      //     // modifiers: [
+      //     //   {
+      //     //     name: 'offset',
+      //     //     options: {
+      //     //       offset: [0, 9]
+      //     //     }
+      //     //   },
+      //     //   changePosition
+      //     // ]
+      //   });
+      // });
+
+    });
+  </script>
+
+</body>
+
+</html>

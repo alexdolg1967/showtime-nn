@@ -1,0 +1,182 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(46, 10, 91, 0.5);
+  backdrop-filter: blur(4px);
+
+  transition: 0.4s ease-in-out;
+  z-index: 20;
+
+  &.topheader {
+    position: fixed;
+    top: -50px;
+    animation: topheader 0.5s forwards ease-in;
+    background: rgba(46, 10, 91, 0.45);
+    backdrop-filter: blur(3px);
+  }
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(25px);
+
+    & .header__container {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  &.menu--active {
+    &::after {
+      left: 0;
+    }
+  }
+
+  &__container {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.625rem, -0.185rem + 4.05vw, 1.25rem);
+
+    @include for-tablet {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      gap: clamp(15px, -2.297rem + 5.05vw, 34px);
+    }
+  }
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    & a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-color);
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    padding: clamp(0.938rem, 0.511rem + 2.13vw, 1.875rem)
+      clamp(1.875rem, 1.307rem + 2.84vw, 3.125rem);
+    top: var(--header-height);
+    left: -102%;
+    width: 100vw;
+    height: 100vh;
+    height: 100lvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--darl-95, rgba(3, 7, 19, 0.95));
+    transition: 0.4s ease-in-out;
+    overflow-y: auto;
+
+    &.menu--active {
+      left: 0;
+    }
+
+    @include for-tablet {
+      width: auto;
+      max-width: none;
+      position: relative;
+      padding: 0;
+      top: 0;
+      left: 0;
+      height: auto;
+      box-shadow: none;
+      background-color: transparent;
+      gap: clamp(10px, -9rem + 7.83vw, 70px);
+      overflow: hidden;
+    }
+  }
+
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 0.528rem + 3.08vw, 40px);
+    transition: 0.3s;
+
+    @include for-tablet {
+      flex-direction: row;
+      gap: clamp(24px, -6.33rem + 12.23vw, 70px);
+    }
+
+    &__item {
+      position: relative;
+      transition: 0.3s;
+
+      a {
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        padding-top: clamp(0.375rem, 0.261rem + 0.57vw, 0.625rem);
+        padding-bottom: clamp(0.375rem, 0.261rem + 0.57vw, 0.625rem);
+        color: var(--text-color);
+        font-size: 24px;
+        font-family: var(--font-family);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: 0.3s;
+        cursor: pointer;
+
+        @include for-tablet {
+          margin: 0;
+          padding-top: 0;
+          padding-block: 9px;
+          font-size: 18px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 2px;
+          background: var(--accent-color);
+          transition: 0.3s;
+        }
+
+        &:hover,
+        &.active {
+          color: var(--accent-color);
+        }
+
+        &:hover::after,
+        &.active::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .burger {
+    margin-left: auto;
+    @include burger;
+
+    @include for-tablet {
+      display: none;
+    }
+
+    &.burger--active {
+      color: #090e1d;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+:root {
+  // base
+  --font-family: "Inter", sans-serif;
+  --second-family: "Montserrat", sans-serif;
+  --content-width: 1420px;
+  --content-offset: 15px;
+  --header-height: 78px;
+  --content-height: 100px;
+
+  // colors
+  --accent-color: #ff721d;
+  --accent-2-color: #2e0a5b;
+  --accent-3-color: #fef975;
+  --bg-color: #03032d;
+  --text-color: #ffffff;
+  --light-color: #fff;
+
+  --accent-gradient: linear-gradient(90deg, #ff721d 0%, #fef975 100%);
+  --accent-2-gradient: linear-gradient(90deg, #2e0a5b 0%, #400090 100%);
+}

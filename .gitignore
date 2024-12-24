@@ -1,0 +1,9 @@
+/node_modules
+/app
+/vscode
+/gulp
+/src/resources/libs
+/src/resources/phpmailer
+/src/resources/phpmailer/mail.php
+package-lock.json
+gulpfile.js

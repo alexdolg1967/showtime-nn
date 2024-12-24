@@ -1,0 +1,38 @@
+.breadcrumbs {
+  background-image: none !important;
+  padding-top: clamp(rem(20), 0.802rem + 1.73vw, rem(30));
+
+  & .rank-math-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: rem(10);
+  }
+
+  p {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: rem(10);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    a {
+      color: var(--accent-color);
+      transition: 0.3s ease;
+
+      &:hover {
+        color: var(--light-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  & .separator {
+    margin-top: 0px;
+    display: inline-flex;
+    color: var(--accent-color);
+  }
+}

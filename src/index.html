@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html', {"title": "Главная страница - Showtime"})
+
+<body class="page__body">
+  <!-- noindex -->
+  <!--[if lt IE 11
+        ]><p class="browsehappy container">
+          Извините, вы используете устаревший браузер. Пожалуйста,
+          <a href="http://browsehappy.com/" target="_blank">обновите браузер</a>, чтобы улучшить производительность, качество
+          отображения и безопасность.
+        </p><!
+      [endif]-->
+  <!-- /noindex -->
+  @include('partials/preloader.html')
+
+  @include('partials/header.html')
+  <main class="main">
+
+    @include('partials/section-hero.html')
+    @include('partials/section-choose.html')
+    @include('partials/section-quiz.html')
+    @include('partials/section-services.html')
+    @include('partials/section-studio.html')
+    @include('partials/section-portfolio.html')
+    @include('partials/section-certificates.html')
+    @include('partials/section-reviews.html')
+    @include('partials/section-payment.html')
+  </main>
+  @include('partials/footer.html')
+  @include('partials/modals.html')
+
+  <script src="libs/inputmask.min.js"></script>
+  <script src="libs/header.js"></script>
+  <script src="libs/swiper-bundle.min.js"></script>
+  <script src="libs/fancybox.umd.js"></script>
+  <script src="libs/gsap/gsap.min.js"></script>
+  <script src="libs/gsap/ScrollTrigger.min.js"></script>
+  <script src="libs/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: "mobile",
+      easing: 'ease-out-back',
+      duration: 1200,
+      //      easing: 'ease-in-out', // default easing for AOS animations
+    });
+  </script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('input[type="text"]').forEach((input) => {
+        // Вставка сюда невозможна
+        input.onpaste = (e) => e.preventDefault();
+
+        input.addEventListener('input', function (event) {
+          var currentValue = event.target.value;  // только русские буквы и цифры
+          var validValue = currentValue.replace(/[^\u0400-\u04ff0-9_,.;:&!()=?*+#\s]/g, ''); // Replace characters that are not alphanumeric, #$, /, newline or carriage return with an empty string
+
+          if (currentValue !== validValue) {
+            event.target.value = validValue; // Set the textarea value to the valid value
+            event.preventDefault(); // Prevent default behavior to deny the change
+          }
+        });
+      });
+
+      // проверки на все текстовые поля
+      const textareas = document.querySelectorAll('textarea');
+
+      textareas.forEach(item => {
+
+        item.onpaste = (e) => e.preventDefault();
+
+        item.addEventListener('input', function (event) {
+          var currentValue = event.target.value;  // только русские буквы и цифры
+          var validValue = currentValue.replace(/[^\u0400-\u04ff0-9_,.;:&!()=?*+#\s]/g, ''); // Replace characters that are not alphanumeric, #$, /, newline or carriage return with an empty string
+
+          if (currentValue !== validValue) {
+            event.target.value = validValue; // Set the textarea value to the valid value
+            event.preventDefault(); // Prevent default behavior to deny the change
+          }
+        });
+      })
+
+      Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+      });
+
+      if (document.getElementById("faq") && (window.innerWidth > 1024)) {
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-hero",
+            start: "0% 5%",
+            end: "90% 10%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "95%",
+          left: "39%",
+          width: "50%",
+        })
+
+        //  section-choose
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-choose",
+            start: "0% 0%",
+            end: "95% 5%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "235%",
+          left: "70%",
+          width: "30%",
+          rotate: "30deg",
+        })
+
+        //  section-quiz
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-quiz",
+            start: "0% 0%",
+            end: "95% 5%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "320%",
+          left: "50%",
+          width: "20%",
+          rotate: "-10deg",
+        })
+
+        //  section-services
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-services",
+            start: "0% 5%",
+            end: "90% 10%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "425%",
+          left: "45%",
+          width: "50%",
+          rotate: "0deg"
+        })
+
+        //  section-studio
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-studio",
+            start: "0% 0%",
+            end: "95% 5%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "540%",
+          left: "65%",
+          width: "25%",
+          rotate: "-15deg",
+        })
+
+        //  section-portfolio
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-portfolio",
+            start: "0% 5%",
+            end: "90% 10%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "630%",
+          left: "55%",
+          width: "40%",
+          rotate: "25deg"
+        })
+
+        //  section-certificates
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-certificates",
+            start: "0% 5%",
+            end: "90% 10%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "720%",
+          left: "75%",
+          width: "25%",
+          rotate: "-15deg"
+        })
+
+        //  section-reviews
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-reviews",
+            start: "0% 5%",
+            end: "90% 10%",
+            markers: false,
+            scrub: true,
+          }
+        }, 'one')
+
+        tl.to("#faq", {
+          top: "775%",
+          left: "82%",
+          width: "20%",
+          rotate: "0deg",
+          opacity: "0"
+        })
+      }
+
+    });
+  </script>
+
+  <script type="module">
+    if (!("anchorName" in document.documentElement.style)) {
+      window.ANCHOR_POSITIONING_POLYFILL_OPTIONS = {
+        elements: undefined,
+        excludeInlineStyles: false,
+        useAnimationFrame: false,
+      };
+      import("https://unpkg.com/@oddbird/css-anchor-positioning");
+    }
+  </script>
+
+  <script>
+    function spark(event) {
+      let i = document.createElement('i');
+      i.style.left = (event.pageX) + 'px';
+      i.style.top = (event.pageY) + 'px';
+      // to add random shape
+      i.style.scale = `${Math.random() * 2 + 1}`;
+
+      // change colors animation
+      let colors = ['#ff721d', '#fff', '#fef975', '#03a9f4'];
+      let randomColor = colors[Math.floor(Math.random() * colors.length)];
+      i.style.background = randomColor;
+
+      // randomly set some property. --x and --y is the name of variable
+      // The i.style.setProperty function is used to set CSS custom properties (variables) directly on an element's style object.
+      i.style.setProperty('--x', getRandomTransitionValue());
+      i.style.setProperty('--y', getRandomTransitionValue());
+
+      document.querySelector('main').appendChild(i);
+
+      setTimeout(() => {
+        document.querySelector('main').removeChild(i);
+      }, 2000);
+    }
+
+    function getRandomTransitionValue() {
+      return `${Math.random() * 400 - 200}px`;
+    }
+
+    document.querySelector('main').addEventListener('mousemove', spark);
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+.section-payment {
+  --gap-list: clamp(0rem, -8.942rem + 14.42vw, 30px);
+  --width-separator: clamp(60px, 2.56rem + 5.95vw, 100px);
+  --width-item: clamp(180px, -12.596rem + 38.46vw, 260px);
+
+  &__grid {
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto var(--width-item) auto;
+    column-gap: var(--gap-list);
+    row-gap: var(--width-separator);
+
+    @media screen and (min-width: 500px) {
+      grid-template-columns:
+        auto var(--width-item) var(--width-separator) var(--width-item)
+        auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns:
+        auto var(--width-item) var(--width-separator) var(--width-item) var(
+          --width-separator
+        )
+        var(--width-item) auto;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 0.03rem + 2.98vw, 30px);
+    border-radius: 12px;
+    background: var(--bg-color);
+    z-index: 1;
+
+    &:nth-of-type(1) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    &:nth-of-type(2) {
+      grid-column: 2;
+      grid-row: 2;
+
+      @media screen and (min-width: 500px) {
+        grid-column: 4;
+        grid-row: 1;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(var(--width-separator) / -2);
+        left: 17vw;
+        width: var(--width-separator);
+        height: auto;
+        aspect-ratio: 51/7;
+        background-image: url(../img/payment/line_1.svg);
+        background-position: center;
+        background-repeat: repeat;
+        background-size: contain;
+        rotate: 90deg;
+
+        @media screen and (min-width: 500px) {
+          top: 70px;
+          left: calc((var(--width-separator) + var(--gap-list)) * -1);
+          rotate: 0deg;
+        }
+      }
+    }
+    &:nth-of-type(3) {
+      grid-column: 2;
+      grid-row: 3;
+
+      @media screen and (min-width: 500px) {
+        grid-column: 4;
+        grid-row: 2;
+      }
+
+      @media screen and (min-width: 768px) {
+        grid-column: 6;
+        grid-row: 1;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(var(--width-separator) / -2);
+        left: 19vw;
+        width: var(--width-separator);
+        height: auto;
+        aspect-ratio: 51/7;
+        background-image: url(../img/payment/line_2.svg);
+        background-position: center;
+        background-repeat: repeat;
+        background-size: contain;
+        rotate: 90deg;
+
+        @media screen and (min-width: 768px) {
+          top: 50px;
+          left: calc((var(--width-separator) + var(--gap-list)) * -1);
+          rotate: 0deg;
+        }
+      }
+    }
+
+    &-image {
+      width: clamp(60px, 1.964rem + 8.93vw, 120px);
+      height: clamp(60px, 1.964rem + 8.93vw, 120px);
+      flex-shrink: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+
+    &-title {
+      max-width: 20ch;
+      font-size: clamp(16px, 0.886rem + 0.48vw, 20px);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+
+      & span {
+        margin-top: 5px;
+        display: block;
+        text-transform: none;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+}
